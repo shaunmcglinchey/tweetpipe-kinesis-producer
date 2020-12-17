@@ -64,18 +64,18 @@ public class TweetpipeProducerMain {
 
                         @Override
                         public void onFailure(Throwable throwable) {
-                            logger.error("Error: {}", throwable.getLocalizedMessage());
+                            logger.error("Error: ", throwable.getLocalizedMessage());
                         }
                     });
                 }
             } catch (TwitterException e) {
-                e.printStackTrace();
+                logger.error("Twitter Exception: ", e);
             }
         }
 
         @Override
         public void onException(Exception e) {
-            logger.error("Error: {}", e);
+            logger.error("Error: ", e);
         }
     }
 }
